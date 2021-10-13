@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Enums\IngredientName;
+use App\Enums\JsonMessages;
+use App\Http\Requests\RecipeRequest;
 use App\Http\Services\RecipeService;
+use App\Models\Ingredient;
 use App\Models\Recipe;
 use Illuminate\Http\JsonResponse;
 
@@ -14,6 +17,8 @@ class RecipeController extends Controller
      */
     private $recipeService;
 
+    private $maxScore = 32760000000;
+
     /**
      * RecipeController constructor.
      * @param RecipeService $recipeService
@@ -23,26 +28,42 @@ class RecipeController extends Controller
         $this->recipeService = $recipeService;
     }
 
-
-    public function getScore(): JsonResponse
+    /**
+     * @return JsonResponse
+     */
+    public function getIngredients(): JsonResponse
     {
-        //#TODO get input from client
+        return response()->json(Ingredient::all());
+    }
 
-        $input = [
-            IngredientName::BUTTERSCOTCH => 43,
-            IngredientName::CINNAMON => 57,
-        ];
+    /**
+     * @return JsonResponse
+     */
+    public function getLeaderboard(): JsonResponse
+    {
+        $recipes = Recipe::orderBy('score', 'desc')->get()->map(function($recipe) {
+            $recipe->percentScore = $recipe->score / $this->maxScore * 100;
+            return $recipe;
+        });
+        return response()->json($recipes);
+    }
 
-        if($input[IngredientName::BUTTERSCOTCH] + $input[IngredientName::CINNAMON] > 100 || $input[IngredientName::BUTTERSCOTCH] + $input[IngredientName::CINNAMON] < 100) {
-            return response()->json(['message' => 'Input has to be exact 100']);
+    /**
+     * @param RecipeRequest $request
+     * @return JsonResponse
+     */
+    public function getScore(RecipeRequest $request): JsonResponse
+    {
+        if($request[IngredientName::BUTTERSCOTCH] + $request[IngredientName::CINNAMON] > 100 || $request[IngredientName::BUTTERSCOTCH] + $request[IngredientName::CINNAMON] < 100) {
+            return response()->json(JsonMessages::FAILED, 401);
         }
 
         $recipe = Recipe::create([
-            IngredientName::BUTTERSCOTCH => $input[IngredientName::BUTTERSCOTCH],
-            IngredientName::CINNAMON => $input[IngredientName::CINNAMON],
-            'score' => $this->recipeService->calculateScore($input)
+            IngredientName::BUTTERSCOTCH => $request[IngredientName::BUTTERSCOTCH],
+            IngredientName::CINNAMON => $request[IngredientName::CINNAMON],
+            'score' => $this->recipeService->calculateScore($request)
         ]);
 
-        return response()->json($recipe);
+        return response()->json(['message' => JsonMessages::SUCCESS, 'recipe' => $recipe]);
     }
 }
