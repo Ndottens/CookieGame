@@ -1,6 +1,6 @@
 ## Socialblue Assignment:
 Hi, thanks for having this opportunity, this repository was made by @ndottens.
-In this project you can try to make your perfect cookie. You can currently use 2 ingredients with each of there own stats.
+In this project you can try to make your perfect cookie. You can currently use 2 ingredients with each of their own stats.
 
 You have to create the perfect cookie in order to achieve the highest score possible.
 
