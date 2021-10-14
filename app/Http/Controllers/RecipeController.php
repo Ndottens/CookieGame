@@ -17,6 +17,10 @@ class RecipeController extends Controller
      */
     private $recipeService;
 
+    /**
+     * #TODO find a way to automatically calculate the highest score
+     * @var int
+     */
     private $maxScore = 32760000000;
 
     /**

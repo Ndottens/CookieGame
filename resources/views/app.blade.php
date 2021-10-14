@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 
-<body style="background-color: #f4f5fa">
+<body style="background-color: #f3d8bd85">
 <div id="app"></div>
 <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 </body>

@@ -1,39 +1,41 @@
 <template>
-    <div class="card border-0">
-        <div class="card-header border-0">
-            <p class="font-italic h5">Leaderboard</p>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="font-italic h3 ml-2">Leaderboard</p>
         </div>
-        <div class="card-body">
-            <div class="card-header border-0"  style="background-color: #f4f5fa">
-                <div class="row mb-0">
-                    <div class="col-md-2">
-                        <span class="font-weight-bold">Nr.</span>
-                    </div>
-                    <div class="col-md-7">
-                        <span class="font-weight-bold">Score</span>
-                    </div>
-                    <div class="col-md-3">
-                        <span class="font-weight-bold">%</span>
-                    </div>
-                </div>
-            </div>
-            <ul class="list-group">
-                <li class="list-group-item border-0" v-for="(recipe, index) in recipes" v-if="recipes">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <p class="custom-margin font-weight-bold">{{ index + 1 }}.</p>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card border-0 py-2 mt-1" style="background-color: #f4f5fa">
-                                <span class="ml-4">{{ recipe.score }}</span>
+        <div class="col-md-12">
+            <div class="card border-0">
+                <div class="card-body">
+                    <div class="card-header border-0"  style="background-color: rgb(103 103 103 / 3%)">
+                        <div class="row mb-0">
+                            <div class="col-md-2">
+                                <span class="font-weight-bold">Nr.</span>
+                            </div>
+                            <div class="col-md-7">
+                                <span class="font-weight-bold">Score</span>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="font-weight-bold">%</span>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <p class="custom-margin font-weight-bold">{{ recipe.percentScore.toFixed(0) }}%</p>
-                        </div>
                     </div>
-                </li>
-            </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item border-0" v-for="(recipe, index) in recipes" v-if="recipes">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <p class="custom-margin font-weight-bold"><span class="badge badge-success text-white">{{ index + 1 }}</span> </p>
+                                </div>
+                                <div class="col-md-7">
+                                    <p class="custom-margin font-weight-bold">{{ recipe.score }}.</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p class="custom-margin font-weight-bold">{{ recipe.percentScore.toFixed(0) }}%</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </template>

@@ -7,7 +7,7 @@ In this project you can try to make your perfect cookie. You can currently use 2
 ## About this project:
 This project was made in laravel and vue, the front-end communicates with a laravel api.
 
-![background](cookie.jpg)
+![background](cookierecipe.png)
 
 ## Project Structure
 

@@ -2148,6 +2148,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Leaderboard',
@@ -2192,8 +2194,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _module_Recipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../module/Recipe */ "./resources/js/module/Recipe.js");
-//
-//
 //
 //
 //
@@ -3449,51 +3449,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card border-0" }, [
+  return _c("div", { staticClass: "row" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "ul",
-        { staticClass: "list-group" },
-        _vm._l(_vm.recipes, function(recipe, index) {
-          return _vm.recipes
-            ? _c("li", { staticClass: "list-group-item border-0" }, [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-2" }, [
-                    _c("p", { staticClass: "custom-margin font-weight-bold" }, [
-                      _vm._v(_vm._s(index + 1) + ".")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-7" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "card border-0 py-2 mt-1",
-                        staticStyle: { "background-color": "#f4f5fa" }
-                      },
-                      [
-                        _c("span", { staticClass: "ml-4" }, [
-                          _vm._v(_vm._s(recipe.score))
-                        ])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-md-3" }, [
-                    _c("p", { staticClass: "custom-margin font-weight-bold" }, [
-                      _vm._v(_vm._s(recipe.percentScore.toFixed(0)) + "%")
+    _c("div", { staticClass: "col-md-12" }, [
+      _c("div", { staticClass: "card border-0" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "ul",
+            { staticClass: "list-group" },
+            _vm._l(_vm.recipes, function(recipe, index) {
+              return _vm.recipes
+                ? _c("li", { staticClass: "list-group-item border-0" }, [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-md-2" }, [
+                        _c(
+                          "p",
+                          { staticClass: "custom-margin font-weight-bold" },
+                          [
+                            _c(
+                              "span",
+                              { staticClass: "badge badge-success text-white" },
+                              [_vm._v(_vm._s(index + 1))]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-7" }, [
+                        _c(
+                          "p",
+                          { staticClass: "custom-margin font-weight-bold" },
+                          [_vm._v(_vm._s(recipe.score) + ".")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-3" }, [
+                        _c(
+                          "p",
+                          { staticClass: "custom-margin font-weight-bold" },
+                          [_vm._v(_vm._s(recipe.percentScore.toFixed(0)) + "%")]
+                        )
+                      ])
                     ])
                   ])
-                ])
-              ])
-            : _vm._e()
-        }),
-        0
-      )
+                : _vm._e()
+            }),
+            0
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -3502,8 +3509,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header border-0" }, [
-      _c("p", { staticClass: "font-italic h5" }, [_vm._v("Leaderboard")])
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("p", { staticClass: "font-italic h3 ml-2" }, [_vm._v("Leaderboard")])
     ])
   },
   function() {
@@ -3514,7 +3521,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass: "card-header border-0",
-        staticStyle: { "background-color": "#f4f5fa" }
+        staticStyle: { "background-color": "rgb(103 103 103 / 3%)" }
       },
       [
         _c("div", { staticClass: "row mb-0" }, [
@@ -3556,140 +3563,128 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card border-0" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c(
-        "div",
-        { staticClass: "row" },
-        _vm._l(_vm.ingredients, function(ingredient) {
-          return _c("div", { staticClass: "col-md-6" }, [
-            _c(
-              "div",
-              {
-                staticClass: "card border-0",
-                staticStyle: { "background-color": "#f9f9f9" }
-              },
-              [
-                _c("img", {
-                  staticClass: "card-img-top",
-                  attrs: {
-                    src:
-                      "http://127.0.0.1:8000/storage/" +
-                      ingredient.name +
-                      ".jpg",
-                    alt: "Card image cap"
-                  }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c("h5", { staticClass: "card-title" }, [
-                    _vm._v(_vm._s(_vm.capitalize(ingredient.name)))
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row mb-2" }, [
-                    _c("div", { staticClass: "col-md-6 font-italic" }, [
-                      _c("p", { staticClass: "card-text mr-2 mb-0" }, [
-                        _vm._v("Capacity: "),
-                        _c("span", { staticClass: "font-weight-bold" }, [
-                          _vm._v(_vm._s(ingredient.capacity))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text mr-2 mt-0 mb-0" }, [
-                        _vm._v("Durability: "),
-                        _c("span", { staticClass: "font-weight-bold" }, [
-                          _vm._v(_vm._s(ingredient.durability))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text mr-2 mt-0" }, [
-                        _vm._v("Taste: "),
-                        _c("span", { staticClass: "font-weight-bold" }, [
-                          _vm._v(_vm._s(ingredient.taste))
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-md-6" }, [
-                      _c("p", { staticClass: "card-text mr-2 mb-0" }, [
-                        _vm._v("Texture: "),
-                        _c("span", { staticClass: "font-weight-bold" }, [
-                          _vm._v(_vm._s(ingredient.texture))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("p", { staticClass: "card-text mr-2 mt-0" }, [
-                        _vm._v("Calories: "),
-                        _c("span", { staticClass: "font-weight-bold" }, [
-                          _vm._v(_vm._s(ingredient.calories))
-                        ])
-                      ])
+  return _c(
+    "div",
+    { staticClass: "row" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _vm._l(_vm.ingredients, function(ingredient) {
+        return _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "card border-0" }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: {
+                src:
+                  "http://127.0.0.1:8000/storage/" + ingredient.name + ".jpg",
+                alt: "Card image cap"
+              }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [
+                _vm._v(_vm._s(_vm.capitalize(ingredient.name)))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row mb-2" }, [
+                _c("div", { staticClass: "col-md-6 font-italic" }, [
+                  _c("p", { staticClass: "card-text mr-2 mb-0" }, [
+                    _vm._v("Capacity: "),
+                    _c("span", { staticClass: "font-weight-bold" }, [
+                      _vm._v(_vm._s(ingredient.capacity))
                     ])
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "font-italic",
-                      attrs: { for: ingredient.name }
-                    },
-                    [_vm._v("Teaspoons")]
-                  ),
+                  _c("p", { staticClass: "card-text mr-2 mt-0 mb-0" }, [
+                    _vm._v("Durability: "),
+                    _c("span", { staticClass: "font-weight-bold" }, [
+                      _vm._v(_vm._s(ingredient.durability))
+                    ])
+                  ]),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.form[ingredient.name],
-                        expression: "form[ingredient.name]"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "number",
-                      id: ingredient.name,
-                      placeholder: "Enter the amount of tea spoons"
-                    },
-                    domProps: { value: _vm.form[ingredient.name] },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.form, ingredient.name, $event.target.value)
-                      }
-                    }
-                  })
+                  _c("p", { staticClass: "card-text mr-2 mt-0" }, [
+                    _vm._v("Taste: "),
+                    _c("span", { staticClass: "font-weight-bold" }, [
+                      _vm._v(_vm._s(ingredient.taste))
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("p", { staticClass: "card-text mr-2 mb-0" }, [
+                    _vm._v("Texture: "),
+                    _c("span", { staticClass: "font-weight-bold" }, [
+                      _vm._v(_vm._s(ingredient.texture))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "card-text mr-2 mt-0" }, [
+                    _vm._v("Calories: "),
+                    _c("span", { staticClass: "font-weight-bold" }, [
+                      _vm._v(_vm._s(ingredient.calories))
+                    ])
+                  ])
                 ])
-              ]
-            )
+              ]),
+              _vm._v(" "),
+              _c(
+                "label",
+                { staticClass: "font-italic", attrs: { for: ingredient.name } },
+                [_vm._v("Teaspoons")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form[ingredient.name],
+                    expression: "form[ingredient.name]"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  id: ingredient.name,
+                  placeholder: "Enter the amount of tea spoons"
+                },
+                domProps: { value: _vm.form[ingredient.name] },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, ingredient.name, $event.target.value)
+                  }
+                }
+              })
+            ])
           ])
-        }),
-        0
-      )
-    ]),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "mt-3 btn btn-sm btn-success",
-        attrs: { type: "button" },
-        on: { click: _vm.submit }
-      },
-      [_vm._v("Submit")]
-    )
-  ])
+        ])
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-sm btn-success mt-2 float-right",
+            attrs: { type: "button" },
+            on: { click: _vm.submit }
+          },
+          [_vm._v("Submit")]
+        )
+      ])
+    ],
+    2
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header border-0" }, [
-      _c("p", { staticClass: "font-italic h5" }, [_vm._v("Cookie Creator")])
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("p", { staticClass: "font-italic h3 ml-2" }, [_vm._v("Cookie Maker")])
     ])
   }
 ]
